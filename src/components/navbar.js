@@ -1,27 +1,41 @@
 import React from 'react';
-const navs = [
+import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+export const navs = [
     {
-       error_date: 'Last Hour' 
+       name: '',
+       data_date: 'Last Hour' 
     },
     {
-       error_date: 'Today' 
+       name: 'today',
+       data_date: 'Today' 
     },
     {
-       error_date: 'Yesterday' 
+        name: 'yesterday',
+       data_date: 'Yesterday' 
     },
     {
-       error_date: 'Last 3 days' 
+        name: 'Last3days',
+       data_date: 'Last 3 days' 
     },
 ]
-const Navbar = () => (
+
+
+const Navbar = () => {
+    return (
   <div className='navbar-container'>
       <ul className='navbar d-flex'>
-          {navs.map(({error_date}) =>
-            <li key={error_date}>{error_date}</li>
+          {navs.map(({data_date,name}) =>
+            <li key={data_date}>
+            <NavLink className={(navData) => (navData.isActive ? 'active-link' : '')} to={`/${name}`}  >
+            {data_date}
+            </NavLink>
+          </li>
           )}
           
       </ul>
   </div>
-);
+)
+};
 
 export default Navbar;
