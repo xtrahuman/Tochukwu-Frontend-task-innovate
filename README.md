@@ -27,7 +27,7 @@ Last 3days data                       |  Yesterday data
 
 ## project link
 kindly click the link below to view the website
-- website link: [Live link](https://clever-banoffee-bbfa9e.netlify.app)
+- website link: [Live link](main-metrics.netlify.app)
 
 ## Author
 
