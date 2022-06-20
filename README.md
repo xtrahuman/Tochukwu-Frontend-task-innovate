@@ -3,6 +3,12 @@
 ## Description
 > This is a frontend task for innovate
 
+## Web Image 
+
+yesterday data                   |  Today data
+:-------------------------------:|:---------------------------------------:
+![image1](./public/Capture.PNG)  |  ![image2](./public/Capture2.PNG.png)
+
 
 ## Built With
 
