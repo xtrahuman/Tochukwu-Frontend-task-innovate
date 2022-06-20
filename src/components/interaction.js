@@ -2,6 +2,7 @@ import React from 'react';
 import Cone from '../images/Shape1.png'
 import Hand from '../images/Shape2.png'
 import Cart from '../images/Shape3.png'
+import Tail from '../images/tail1.png'
 import { allData } from '../Redux/allData/reducer/reducer';
 
 const{web_pessimizer, mobile_pessimizer} = allData
@@ -11,14 +12,17 @@ const Interactions = ({bookingsCurrent, bookingsPrevious, str, averagePrice, ctr
     const clicksPercent = ((clicksCurrent-clicksPrevious)/clicksPrevious) * 100
     const searchGreaterThan = searchCurrent > searchPrevious
     const clicksGreaterThan = clicksCurrent > clicksPrevious
+    const bookingsGreaterThan = bookingsCurrent > bookingsPrevious
 return (
   <div className='interaction-container'>
     <div className='d-flex section_style'>
         <div className='section_width d-flex'>
-            <div>
+            <div className='d-flex all_icon'>
                 <div className='big_round d-flex'>
+                    <div className='small_round' style={{backgroundColor: searchGreaterThan ? '#8BC34A' : '#FF6A67'}}></div>
                 <img src={Cone} alt="searchIcon" className="searchIcon" />
                 </div>
+                <img src={Tail} alt="tailIcon" className="tail_icon"/>
             </div>
             <div>
             <div className='percent_tag d-flex' >
@@ -46,10 +50,12 @@ return (
     </div>
     <div className='d-flex section_style'>
     <div className='section_width d-flex'>
-            <div>
+            <div div className='d-flex all_icon'>
                 <div className='big_round d-flex'>
-                <img src={Hand} alt="searchIcon" className="searchIcon" />
+                <div className='small_round' style={{backgroundColor: clicksGreaterThan ? '#8BC34A' : '#FF6A67'}}></div>
+                <img src={Hand} alt="clickIcon" className="clickIcon" />
                 </div>
+                <img src={Tail} alt="tailIcon" className="tail_icon"/>
             </div>
             <div>
             <div className='percent_tag d-flex' >
@@ -78,6 +84,7 @@ return (
     <div className='section_width d-flex'>
             <div>
                 <div className='big_round d-flex'>
+                <div className='small_round' style={{backgroundColor: bookingsGreaterThan ? '#8BC34A' : '#FF6A67'}}></div>
                 <img src={Cart} alt="searchIcon" className="searchIcon" />
                 </div>
             </div>
@@ -97,7 +104,7 @@ return (
         </div>
         <div className='section_width'>
             <p  className='bolded_p desc_header'>Str: {str === null? `No data` : `${str?.toFixed(2)}%`}</p>
-            <p  className='bolded_p desc_header'>Avg.Price {averagePrice?.toFixed(2)}</p>
+            <p  className='bolded_p desc_header'>Avg.Price: {averagePrice?.toFixed(2)}</p>
             <p className='faint_desc'>Conversion from cliks  to bookings on all devices.</p>
             <div>
                 <span className='highlight_one'>Help:</span>
