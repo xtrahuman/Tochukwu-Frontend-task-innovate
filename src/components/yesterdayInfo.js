@@ -11,7 +11,7 @@ const YesterdayInfo = () => {
       const display = () => dispatch(getYesterdayInfo())
       display()
     }
-  , []);
+  ,[dispatch]);
     const {errors_yesterday, data} = dataInfo
 
     if(data)

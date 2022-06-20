@@ -9,10 +9,10 @@ const ThreeDayInfo = () => {
   const dataInfo = useSelector((state) => state.dataInfo);
   const dispatch = useDispatch()
   useEffect(() =>{ 
-    const display = async() => await dispatch(getThreeDayInfo())
+    const display = () => dispatch(getThreeDayInfo())
     display()
   }
-, []);
+, [dispatch]);
   const {errors_last_3days, data} = dataInfo
   if(data)
   { const {

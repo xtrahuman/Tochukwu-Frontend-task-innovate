@@ -12,7 +12,7 @@ const HourInfo = () => {
     const display = () => dispatch(getHourInfo())
     display()
   }
-, []);
+, [dispatch]);
   const {errors_last_hour, data} = dataInfo
 
   if(data)
