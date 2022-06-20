@@ -5,7 +5,6 @@ import { navs } from './navbar';
 import HourInfo from './hourInfo';
 import YesterdayInfo from './yesterdayInfo';
 import ThreeDayInfo from './threeDaysInfo';
-import TodayInfo from './todayInfo';
 // import getTodayInfo from '../Redux/allData/actions/action';
 
 
@@ -15,10 +14,9 @@ const Container = () => (
     <Navbar/>
    
     <Routes>
-    <Route path={'/'} element={<HourInfo />} /> 
-    <Route path={'/Last3days'} element={<ThreeDayInfo />} /> 
-    <Route path={'/today'} element={<TodayInfo />} /> 
-    <Route path={'/yesterday'} element={<YesterdayInfo/>} /> 
+    <Route path={'/'} element={<YesterdayInfo/>} />
+    <Route path={'/lastHour'} element={<HourInfo />} /> 
+    <Route path={'/Last3days'} element={<ThreeDayInfo />} />  
     </Routes>
   </div>
 );

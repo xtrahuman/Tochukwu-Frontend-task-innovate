@@ -1,73 +1,89 @@
 import React from 'react';
-// import { allData } from '../Redux/allData/reducer/reducer';
+import { allData } from '../Redux/allData/reducer/reducer';
 
-// const{web_pessimizer, mobile_pessimizer} = allData
+const{web_pessimizer, mobile_pessimizer} = allData
 
-const Interactions = () => (
+const Interactions = ({bookingsCurrent, bookingsPrevious, str, averagePrice, ctr, searchCurrent, searchPrevious, clicksPrevious, clicksCurrent, period}) => {
+    const searchPercent = ((searchCurrent-searchPrevious)/searchPrevious) * 100
+    const clicksPercent = ((clicksCurrent-clicksPrevious)/clicksPrevious) * 100
+    const searchGreaterThan = searchCurrent > searchPrevious
+    const clicksGreaterThan = clicksCurrent > clicksPrevious
+return (
   <div className='interaction-container'>
-    <div>
-        <div>
-            <p>Searches</p>
-            <div>
-                <span>2980</span>
-                <span>yesterday</span>
+    <div className='d-flex section_style'>
+        <div className='section_width'>
+            <div className='percent_tag d-flex' >
+            <p className='bolded_p desc_header'>Searches</p> <span className='percent_badge' style={{color:'#fff', backgroundColor: searchGreaterThan ? '#8BC34A' : '#FF6A67'}}>{searchPercent.toFixed(2)}%</span>
             </div>
-            <div>
-                <span>2980</span>
-                <span>Last friday</span>
+            <div className='flex_period'>
+                <span className='data_num'>{searchCurrent}</span>
+                <span className='data_str'>current {period}</span>
             </div>
-        </div>
-        <div>
-            <p>mobile traffic</p>
-            <p>Web traffic</p>
-            <p>traffic on mobile and desktop devices</p>
-            <div>
-                <span>Help:</span>
-                <span>searches, permmisions</span>
+            <div className='style_prev flex_period'>
+                <span className='data_num'>{searchPrevious}</span>
+                <span className='data_str'>previous {period}</span>
             </div>
         </div>
-    </div>
-    <div>
-        <div>
-            <p>Clicks</p>
+        <div className='section_width'>
+            <p className='bolded_p desc_header'>Mobile traffic: {mobile_pessimizer?.toFixed(2)}%</p>
+            <p className='bolded_p desc_header'>Web traffic: {web_pessimizer?.toFixed(2)}%</p>
+            <p className='faint_desc'>traffic on mobile and desktop devices</p>
             <div>
-                <span>243</span>
-                <span>yesterday</span>
-            </div>
-            <div>
-                <span>243</span>
-                <span>Last friday</span>
-            </div>
-        </div>
-        <div>
-            {/* <p>mobile traffic: {mobile_pessimizer}</p>
-            <p>Web traffic: {web_pessimizer}</p> */}
-            <p>traffic on mobile and desktop devices</p>
-            <div>
-                <span>Help:</span>
-                <span>searches, permmisions</span>
+                <span className='highlight_one'>Help: </span>
+                <span className='highlight_two'>searches, pessimisation</span>
             </div>
         </div>
     </div>
-    <div>
-        <div>
-            <p>Searches</p>
-            <div>
-                <span>2980</span>
-                <span>yesterday</span>
+    <div className='d-flex section_style'>
+        <div className='section_width'>
+            <div className='percent_tag d-flex' >
+            <p className='bolded_p desc_header'>Clicks</p> <span className='percent_badge' style={{color:'#fff', backgroundColor:  clicksGreaterThan ? '#8BC34A' : '#FF6A67'}}>{ clicksPercent.toFixed(2)}%</span>
+            </div>
+            <div className='flex_period'>
+                <span className='data_num'>{clicksCurrent}</span>
+                <span className='data_str'>current {period}</span>
+            </div>
+            <div className='style_prev flex_period'>
+                <span className='data_num'>{clicksPrevious}</span>
+                <span className='data_str'>previous {period}</span>
             </div>
         </div>
-        <div>
-            <p>mobile traffic</p>
-            <p>Web traffic</p>
-            <p>traffic on mobile and desktop devices</p>
+        <div className='section_width'>
+            <p className='ctrColor bolded_p desc_header'>Ctr: {ctr?.toFixed(2)}%</p>
+            <p className='faint_desc'>Conversion from searches  to clicks on all devices.</p>
             <div>
-                <span>Help:</span>
-                <span>searches, permmisions</span>
+                <span className='highlight_one'>Help: </span>
+                <span className='highlight_two'>ctr, Clicks</span>
+            </div>
+        </div>
+    </div>
+    <div className='d-flex section_style'>
+    <div className='section_width'>
+            <div className='percent_tag d-flex' >
+            <p  className='bolded_p desc_header'>Bookings</p> 
+            </div>
+            <div className='flex_period'>
+                <span className='data_num '>{bookingsCurrent}</span>
+                <span className='data_str '>current</span>
+            </div>
+            <div className='style_prev flex_period'>
+                <span className='data_num'>{bookingsPrevious}</span>
+                <span className='data_str'>previous</span>
+            </div>
+        </div>
+        <div className='section_width'>
+            <p  className='bolded_p desc_header'>Str: {str==null? `No data` : `${str?.toFixed(2)}%`}</p>
+            <p  className='bolded_p desc_header'>Avg.Price {averagePrice?.toFixed(2)}</p>
+            <p className='faint_desc'>Conversion from cliks  to bookings on all devices.</p>
+            <div>
+                <span className='highlight_one'>Help:</span>
+                <span className='highlight_two'>Str, bookings, Avg.Price</span>
             </div>
         </div>
     </div>
   </div>
 );
+
+}
 
 export default Interactions;

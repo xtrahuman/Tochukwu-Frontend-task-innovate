@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 const colorCode = (color) => {
     switch (color) {
         case 599:
-          return 'blue';
+          return '#FFCC00';
         case 502:
-          return 'red'
+          return '#5856D5'
         case null:
-         return 'green'
+         return '#2196F3'
         default:
           return '';
       }
@@ -29,39 +29,42 @@ const ErrorInfo = ({errors, errorInfo, zeroes, timeout}) => {
             detail: timeout
         },
     ]
-    const data = useSelector((state) => state.dataInfo);
 let totalWidthStyle = 0;
+let sum = 0
 errors?.map(({count}) => totalWidthStyle+=parseInt(count))
+errorDetail?.map(({detail}) => sum+=parseInt(detail))
+
+let averageError = sum/errors?.length
 
 return (
   <div className='ErrorInfo-container'>
       <ul className='error_info d-flex'>
           {errorDetail.map(({name, detail}) =>
-          <div>
+          <div key={name}>
           <div className='d-flex justify_error_badge'>
               <div className='error_info_badge'></div>
               <div>
-                <li key={name}>{name}: {detail.toFixed(2)}</li>
+                <li className='bolded_p'>{name}: { detail==null ? `No data` : detail?.toFixed(2)}</li>
               </div>
           </div>
-          <li className='average_info'>Average: 0.12%</li>
+          <li className='average_info'>Average: { detail==null ? `No data` : averageError?.toFixed(2)}</li>
           </div>
           )}  
       </ul>
       <div className='d-flex' style={{width: '100%'}}>
-      {errors?.map(({count, code}) =>
-        <div style={{width: `${(parseInt(count)/totalWidthStyle * 100).toFixed(2)}%`, backgroundColor: colorCode(code), height: '8px'}}></div>
+    { errors?.length===0? <p className='error-center'> No error data for this period</p> : errors?.map(({count, code}) =>
+        <div key={code} style={{width: `${(parseInt(count)/totalWidthStyle * 100).toFixed(2)}%`, backgroundColor: colorCode(code), height: '8px'}}></div>
       )}
     </div>
       <ul className='d-flex error_info' style={{width: '100%'}}>
           {errors?.map(({count, code}) =>
-          <div className='d-flex '>
+          <div key={code} className='d-flex '>
               {
                  code === null 
                 ?
-                  <li> other : {count}</li>
+                  <li className='d-flex code_pos'><div className='color_size' style={{background: colorCode(code)}}></div><span>other : {count}</span></li>
                 :
-                <li key={code}> Error {code}: {count}</li>
+                <li className='d-flex code_pos'><div className='color_size'  style={{background: colorCode(code)}}></div><span>Error {code}: {count}</span></li>
                 
               }
                 

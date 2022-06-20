@@ -1,17 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 export const navs = [
     {
-       name: '',
+       name: 'lastHour',
        data_date: 'Last Hour' 
     },
     {
-       name: 'today',
-       data_date: 'Today' 
-    },
-    {
-        name: 'yesterday',
+        name: '',
        data_date: 'Yesterday' 
     },
     {

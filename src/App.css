@@ -2,6 +2,20 @@
   display: flex;
 }
 
+body {
+  color: #4A4A4A;
+}
+
+.error-center {
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -12,26 +26,53 @@ ul {
   border: 1px solid #D9D9D9;
   border-radius: 5px;
   color: #4A4A4A;
-}
-
-.navbar li{
-  border-right: 1px solid #D9D9D9;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .navbar li:last-child{
   border-right: 0;
 }
 
+.navbar a {
+  border-right: 1px solid #D9D9D9;
+  text-decoration: none;
+  color: #4A4A4A;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+a.active-link {
+  background-color: #2196F3;
+  color: #fff;
+}
+
+.navbar a:hover {
+color: #fff;
+background-color: #2196F3;
+}
+
+.color_size {
+  width: 10px;
+  height: 10px;
+}
+
+.code_pos {
+  align-items: center;
+  gap: 5px;
+}
+
 .error_info {
   justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .error_info_badge{
   border-radius: 50%;
   width: 10px;
   height: 10px;
-  background-color: red;
+  background-color: #8BC34A;
 }
 
 .justify_error_badge{
@@ -41,4 +82,82 @@ ul {
 
 .average_info {
   margin-left: 13px;
+  color: #A0B0B9;
+  font-size: 14px;
+}
+
+.percent_badge {
+  color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 4px;
+}
+
+.percent_tag{
+  align-items: center;
+  gap: 6px;
+}
+
+.section_width {
+  flex-basis: 50%;
+}
+
+.ctrColor {
+  color: #FF6A67
+}
+
+.style_prev {
+  color: #A0B0B9;
+}
+
+.data_num {
+ font-size: 20px;
+ font-weight: 400;
+ margin: 5px 0;
+}
+
+.data_str {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 5px 0;
+}
+
+.highlight_one {
+font-size: 14px;
+}
+
+.highlight_two {
+  font-size: 14px;
+  color: #2196F3;
+}
+
+.bolded_p {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.desc_header {
+  margin: 12px 0;
+}
+
+.section_style{
+  padding : 18px 0;
+  border-top: 2px solid #EFF1F4;
+  ;
+}
+
+.section_style:first-child {
+  border-top: 0;
+}
+
+.faint_desc {
+  color: #A0B0B9;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.flex_period {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

@@ -78,7 +78,7 @@ let dateObj
 
 const { errors_last_3days, errors_yesterday,errors_last_hour, data} = Parseinfo
 
-// export const allData = data[0]
+export const allData = data[0]
 
 const filterData = (dateEntry) => {
   let newData = Object.entries(data[0]).filter(([key, value]) => key.includes(dateEntry)
