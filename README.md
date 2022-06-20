@@ -5,7 +5,7 @@
 
 ## Web Image 
 
-yesterday data                   |  Today data
+Last 3days data                       |  Yesterday data
 :-------------------------------:|:---------------------------------------:
 ![image1](./public/Capture.PNG)  |  ![image2](./public/Capture2.PNG)
 
