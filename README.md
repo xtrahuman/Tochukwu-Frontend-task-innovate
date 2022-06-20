@@ -7,7 +7,7 @@
 
 yesterday data                   |  Today data
 :-------------------------------:|:---------------------------------------:
-![image1](./public/Capture.PNG)  |  ![image2](./public/Capture2.PNG.png)
+![image1](./public/Capture.PNG)  |  ![image2](./public/Capture2.PNG)
 
 
 ## Built With
