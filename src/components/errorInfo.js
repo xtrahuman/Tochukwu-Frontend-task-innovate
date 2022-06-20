@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 const colorCode = (color) => {
     switch (color) {
