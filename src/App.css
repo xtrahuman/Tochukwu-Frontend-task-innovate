@@ -6,6 +6,15 @@ body {
   color: #4A4A4A;
 }
 
+.big_round {
+  background-color: #2196F3;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
 .error-center {
   text-align: center;
   width: 100%;
@@ -100,6 +109,8 @@ background-color: #2196F3;
 
 .section_width {
   flex-basis: 50%;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .ctrColor {
@@ -137,7 +148,8 @@ font-size: 14px;
 }
 
 .desc_header {
-  margin: 12px 0;
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 .section_style{
